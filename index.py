@@ -1,6 +1,4 @@
+import json
 
-l = ['a', 'b', 'c']
-
-
-for i in enumerate(l):
-    print(i)
+x = [1, 'str', 'str2']
+print(json.loads(x))
