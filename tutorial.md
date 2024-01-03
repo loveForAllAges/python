@@ -1,9 +1,4 @@
 # Документация по ЯП Python
-### Оглавление
-1. Введение
-2. Типы данных
-3. I/O
-4. OOP
 ## 1. Введение
 - PEP8 - руководство по стилю кода.
 - Каждая функция должна иметь краткое описание себя.
@@ -212,4 +207,168 @@ f.close()
 Возвращает целое число, указывающее текущую позицию файлового обьекта в файле, представленное как кол-во байтов от начала файла в двоичном режиме
 ##### f.seek(offset, whence)
 Изменение положения файлового обьекта. offset - положение, whence - опорная точка (0 - начало файла, 1 - текущая позиция файла, 2 - конец файла). По умолчанию 0.
-## 4. OOP
+## Генераторы
+При каждом вызове next() генератор возобновляет работу с того места, где остановился (он запоминает все значения данных и то, какой оператор был выполнен последним). Методы __iter__ и __next__ создаются автоматически.
+```python
+def reverse(data):
+    for i in range(len(data)-1, -1, -1):
+        yield data[i]
+
+for i in reverse('spam'):
+    print(i)
+```
+## Генераторные выражения
+Выражения-генераторы более компактны, но менее универсальны, чем полные определения генераторов, и более удобны для памяти, чем эквивалентные определения списков.
+```python
+sum(i*i for i in range(10))
+```
+
+## Модули стандартной библиотеки
+### os
+Модуль для взаимодействия с ОС.
+```python
+import os
+```
+### shutil
+Модуль для ежедневных задач, управления файлами и каталогами.
+```python
+import shutil
+```
+### glob
+Модуль предоставляет функцию для создания списков файлов на основе поиска по подстановочным знакам в каталоге:
+```python
+import glob
+glob.glob('*.py')
+```
+### sys
+Модуль для обработки аргументов командной строки:
+```python
+import sys
+
+print(sys.argv)
+```
+Также имеет атрибуты stdin, stdout, stderr. Полезно для вывода предупреждений и сообщений об ошибках, чтобы сделать их видимыми, даже если стандартный ввод был перенаправлен.
+Способ завершить программу:
+```python
+sys.exit()
+```
+### argparse
+Модуль для более сложной обработки аргументов командной строки:
+```python
+import argparse
+
+'python top.py --lines=5 alpha.txt beta.txt'
+parser = argparse.ArgumentParser(prog='top',description='Show top lines from each file')
+parser.add_argument('filenames', nargs='+')
+parser.add_argument('-l', '--lines', type=int, default=10)
+args = parser.parse_args()
+```
+### re
+Модуль предоставляет инструменты регулярных выражений для расширенной обработки строк. Предлагают краткие и оптимизированные решения для сложных сопоставлений и манипуляций:
+```python
+import re
+
+re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest')
+re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
+```
+Для простых манипуляций рекомендуется использовать строковые методы, так как их легче читать и отлаживать:
+```python
+'tea for too'.replace('too', 'two')
+```
+### math
+Модуль предоставляет доступ к базовым функциям библиотеки Си для вычислений с плавающей запятой:
+```python
+import math
+math.cos(math.pi / 4)
+math.log(1024, 2)
+```
+### random
+Модуль предоставляет инструменты для случайного выбора:
+```python
+import random
+random.choice(['apple', 'pear', 'banana'])
+'apple'
+random.sample(range(100), 10)
+random.random()
+random.randrange(6) 
+```
+### statistics
+Модуль рассчитывает основные статические свойства (среднее значение, медиану, дисперсию и т.д.) числовых данных:
+```python
+import statistics
+data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
+statistics.mean(data)
+statistics.median(data)
+statistics.variance(data)
+```
+### urllib.request.urlopen
+Простой модуль для доступа в Интернет, обработки интернет-протоколов и получения данных из URL адресов:
+```python
+from urllib.request import urlopen
+with urlopen('http://worldtimeapi.org/api/timezone/etc/UTC.txt') as response:
+    for line in response:
+        line = line.decode()
+        if line.startswith('datetime'):
+            print(line.rstrip())
+```
+### smptlib
+Простой модуль для доступа в Интернет, обработки интернет-протоколов и отправки email. Необходим почтовый сервер на локальном хосте:
+```python
+import smtplib
+server = smtplib.SMTP('localhost')
+server.sendmail('email@example.org', 'email@example.org',
+"""To: email@example.org
+From: email@example.org
+
+Beware the Ides of March.
+""")
+server.quit()
+```
+### datetime
+Модуль для управления датами и временем, поддерживает обьекты, учитывающие часовой пояс:
+```python
+from datetime import date
+now = date.today()
+now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+birthday = date(1964, 7, 31)
+age = now - birthday
+age.days
+```
+### zlib
+Модуль архивирования и сжатия данных:
+```python
+import zlib
+s = b'witch which has which witches wrist watch'
+t = zlib.compress(s)
+zlib.decompress(t)
+zlib.crc32(s)
+```
+### timeit.Timer
+Модуль измерения времени выполнения кода
+```python
+from timeit import Timer
+Timer('t=a; a=b; b=t', 'a=1; b=2').timeit()
+```
+### doctest
+Модуль для сканирования модуля и проверки тестов в строках документации:
+```python
+import doctest
+def foo(i):
+    """
+    Foo desc
+
+    >>> print(foo(2))
+    4
+    """
+    return i*i
+print(doctest.testmod())
+```
+### unittest
+Модуль инструментов для тестирования:
+```python
+import unittest
+class TestFoo(unittest.TestCase):
+    def test_foo(self):
+        self.assertEqual(foo(2), 4)
+unittest.main()
+```
