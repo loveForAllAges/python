@@ -372,3 +372,144 @@ class TestFoo(unittest.TestCase):
         self.assertEqual(foo(2), 4)
 unittest.main()
 ```
+### reprlib
+Модуль предоставляет версию repr() для сокращенного отображения больших или глубоко вложенных контейнеров:
+```python
+import reprlib
+reprlib.repr(set('supercalifragilisticexpialidocious'))
+```
+### pprint
+Модуль предоставляет более сложный контроль над выводом в консоль обьектов.
+```python
+import textwrap
+doc = """The wrap() method is just like fill() except that it returns
+a list of strings instead of one big string with newlines to separate
+the wrapped lines."""
+print(textwrap.fill(doc, width=40))
+```
+### textwrap
+Модуль форматирует абзацы текста по заданной ширине.
+```python
+import textwrap
+doc = """The wrap() method is just like fill() except that it returns
+a list of strings instead of one big string with newlines to separate
+the wrapped lines."""
+print(textwrap.fill(doc, width=40))
+```
+### locale
+Модуль имеет доступ к БД форматов данных, обеспечивает прямой способ форматирования чисел с помощью разделителей групп:
+```python
+import locale
+locale.setlocale(locale.LC_ALL, 'russian')
+conv = locale.localeconv()
+output = locale.format_string("%d %s", (1000000, conv['currency_symbol']), grouping=True)
+```
+### string
+Модуль включает Template() для редактирования конечными пользователями:
+```python
+from string import Template
+t = Template('$atext new text $b.')
+t.substitute(a='New', b='correct')
+```
+### struct
+Модуль предоставляет функции pack() и unpack() для работы с форматами двоичных записей переменной длины.
+```python
+import struct
+with open('myfile.zip', 'rb') as f:
+    data = f.read()
+start = 0
+for i in range(3):
+    start += 14
+    fields = struct.unpack('<IIIHH', data[start:start+16])
+    crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+    start += 16
+    filename = data[start:start+filenamesize]
+    start += filenamesize
+    extra = data[start:start+extra_size]
+    print(filename, hex(crc32), comp_size, uncomp_size)
+    start += extra_size + comp_size
+```
+### threading
+Модуль для выполнения задач в фоновом режиме - другом потоке. Основная проблема многопоточных приложений — координация потоков, которые совместно используют данные или другие ресурсы:
+```python
+import threading, zipfile
+
+class AsyncZip(threading.Thread):
+    def __init__(self, infile, outfile):
+        threading.Thread.__init__(self)
+        self.infile = infile
+        self.outfile = outfile
+
+    def run(self):
+        f = zipfile.ZipFile(self.outfile, 'w', zipfile.ZIP_DEFLATED)
+        f.write(self.infile)
+        f.close()
+        print('Finished background zip of:', self.infile)
+
+background = AsyncZip('mydata.txt', 'myarchive.zip')
+background.start()
+print('The main program continues to run in foreground.')
+background.join()
+print('Main program waited until background was done.')
+```
+### logging
+Модуль предоставляет полнофункциональную и гибкую систему логирования. В самом простом случае сообщения журнала отправляются в файл или в sys.stderr:
+```python
+import logging
+logging.debug('Debugging information')
+```
+### weakref
+Модуль предоставляет инструменты для отслеживания без создания ссылки на них:
+```python
+import weakref, gc
+class A:
+    def __init__(self, value):
+        self.value = value
+    def __repr__(self):
+        return str(self.value)
+
+a = A(10)
+d = weakref.WeakValueDictionary()
+d['primary'] = a
+del a
+gc.collect()
+```
+### array
+Модуль предоставляет array(), похожий на список, который хранит только однородные данные и хранит их более компактно:
+```python
+from array import array
+a = array('H', [4000, 10, 700, 22222])
+```
+### collections
+Модуль предоставляет deque(), похожий на список, с более быстрым добавлением и извлечением с левой стороны, но более медленным поиском в середине. Подходит для реализации очередей и поиска по дереву в ширину:
+```python
+from collections import deque
+d = deque(["task1", "task2", "task3"])
+d.append("task4")
+d.popleft()
+```
+### bisect
+Модуль с функциями для управления отсортированными списками:
+```python
+import bisect
+scores = [(100, 'perl'), (200, 'tcl'), (400, 'lua'), (500, 'python')]
+bisect.insort(scores, (300, 'ruby'))
+```
+### heapq
+Модуль с функциями для реализации кучи на основе обычных списков. Запись с наименьшим значением всегда сохраняется в начале. Это полезно, когда неоднократно обращаются к наименьшему элементу, но не хотят выполнять полную сортировку списка:
+```python
+from heapq import heapify, heappop, heappush
+data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
+heapify(data)
+heappush(data, -5)
+[heappop(data) for i in range(3)] 
+```
+### decimal
+Модуль с Decimal типом данных для десятичной арифметики с плавающей запятой. Полезно для финансовых вычислений, точности десятичного представления, контроля округления, отслеживания значимых десятичных знаков:
+```python
+>>> from decimal import *
+>>> round(Decimal('0.70') * Decimal('1.05'), 2)
+Decimal('0.74')
+>>> round(.70 * 1.05, 2)
+0.73
+```

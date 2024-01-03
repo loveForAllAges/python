@@ -26,18 +26,9 @@ class MyClass:
         return 1+2
 
 
-def foo(i):
-    """
-    Foo desc
+import locale
+locale.setlocale(locale.LC_ALL, 'russian')
+conv = locale.localeconv()
+output = locale.format_string("%d %s", (1000000, conv['currency_symbol']), grouping=True)
 
-    >>> print(foo(2))
-    4
-    """
-    return i*i
-
-
-import unittest
-class TestFoo(unittest.TestCase):
-    def test_foo(self):
-        self.assertEqual(foo(2), 4)
-unittest.main()
+print(output)
