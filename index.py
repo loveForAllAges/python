@@ -24,11 +24,3 @@ class MyClass:
 
     def foo(self):
         return 1+2
-
-
-import locale
-locale.setlocale(locale.LC_ALL, 'russian')
-conv = locale.localeconv()
-output = locale.format_string("%d %s", (1000000, conv['currency_symbol']), grouping=True)
-
-print(output)
