@@ -1,29 +1,151 @@
 # Встроенные функции
 
-[1. abs](#abs)
-
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-
+1. [abs](#abs)
+2. [aiter](#aiter)
+3. [all](#all)
+4. [anext](#anext)
+5. [any](#any)
+6. [ascii](#ascii)
+7. [bin](#bin)
+8. [bool](#bool)
+9. [breakpoint](#breakpoint)
+10. [bytearray](#bytearray)
+11. [bytes](#bytes)
+12. [callable](#callable)
+13. [chr](#chr)
+14. [@classmethod](#@classmethod)
+15. [compile](#compile)
+16. [complex](#complex)
+17. [delattr](#delattr)
+18. [dict](#dict)
+19. [dir](#dir)
+20. [divmod](#divmod)
+21. [enumerate](#enumerate)
+22. [eval](#eval)
+23. [exec](#exec)
+24. [filter](#filter)
+25. [float](#float)
+26. [format](#format)
+27. [frozenset](#frozenset)
+28. [getattr](#getattr)
+29. [globals](#globals)
+30. [hasattr](#hasattr)
+31. [hash](#hash)
+32. [help](#help)
+33. [hex](#hex)
+34. [id](#id)
+35. [input](#input)
+36. [int](#int)
+37. [isinstance](#isinstance)
+38. [issubclass](#issubclass)
+39. [iter](#iter)
+40. [len](#len)
+41. [list](#list)
+42. [locals](#locals)
+43. [map](#map)
+44. [max](#max)
+45. [memoryview](#memoryview)
+46. [min](#min)
+47. [next](#next)
+48. [object](#object)
+49. [oct](#oct)
+50. [open](#open)
+51. [ord](#ord)
+52. [pow](#pow)
+53. [print](#print)
+54. [property](#property)
+55. [@getter](#@getter)
+56. [@setter](#@setter)
+57. [@deleter](#@deleter)
+58. [range](#range)
+59. [repr](#repr)
+60. [reversed](#reversed)
+61. [round](#round)
+62. [set](#set)
+63. [setattr](#setattr)
+64. [slice](#slice)
+65. [sorted](#sorted)
+66. [@staticmethod](#@staticmethod)
+67. [str](#str)
+68. [sum](#sum)
+69. [super](#super)
+70. [tuple](#tuple)
+71. [type](#type)
+72. [vars](#vars)
+73. [zip](#zip)
+74. [__import__](#__import__)
 
 ## abs
-Функция
+## aiter
+## all
+## anext
+## any
+## ascii
+## bin
+## bool
+## breakpoint
+## bytearray
+## bytes
+## callable
+## chr
+## @classmethod
+## compile
+## complex
+## delattr
+## dict
+## dir
+## divmod
+## enumerate
+## eval
+## exec
+## filter
+## float
+## format
+## frozenset
+## getattr
+## globals
+## hasattr
+## hash
+## help
+## hex
+## id
+## input
+## int
+## isinstance
+## issubclass
+## iter
+## len
+## list
+## locals
+## map
+## max
+## memoryview
+## min
+## next
+## object
+## oct
+## open
+## ord
+## pow
+## print
+## property
+## @getter
+## @setter
+## @deleter
+## range
+## repr
+## reversed
+## round
+## set
+## setattr
+## slice
+## sorted
+## @staticmethod
+## str
+## sum
+## super
+## tuple
+## type
+## vars
+## zip
+## __import__
