@@ -73,7 +73,7 @@
 71. [type](#type)
 72. [vars](#vars)
 73. [zip](#zip)
-74. [__import__](#import)
+74. [\_\_import__](#\_\_import__)
 
 ## abs
 ## aiter
@@ -148,4 +148,4 @@
 ## type
 ## vars
 ## zip
-## __import__
+## \_\_import__
