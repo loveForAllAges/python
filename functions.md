@@ -1,8 +1,8 @@
 # Встроенные функции
 
-## 1. [abs](#abs)
-2. [aiter](#aiter)
-3. [all](#all)
+#### 1. [abs](#abs)
+### 2. [aiter](#aiter)
+##### 3. [all](#all)
 4. [anext](#anext)
 5. [any](#any)
 6. [ascii](#ascii)
