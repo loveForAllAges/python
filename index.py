@@ -24,3 +24,6 @@ class MyClass:
 
     def foo(self):
         return 1+2
+
+x = compile('x = 1\nz = x + 5\nprint(z)', 'test', 'exec')
+exec(x)
