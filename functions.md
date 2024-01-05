@@ -54,26 +54,23 @@
 52. [pow](#pow)
 53. [print](#print)
 54. [property](#property)
-55. [@getter](#getter)
-56. [@setter](#setter)
-57. [@deleter](#deleter)
-58. [range](#range)
-59. [repr](#repr)
-60. [reversed](#reversed)
-61. [round](#round)
-62. [set](#set)
-63. [setattr](#setattr)
-64. [slice](#slice)
-65. [sorted](#sorted)
-66. [@staticmethod](#staticmethod)
-67. [str](#str)
-68. [sum](#sum)
-69. [super](#super)
-70. [tuple](#tuple)
-71. [type](#type)
-72. [vars](#vars)
-73. [zip](#zip)
-74. [\_\_import__](#import)
+55. [range](#range)
+56. [repr](#repr)
+57. [reversed](#reversed)
+58. [round](#round)
+59. [set](#set)
+60. [setattr](#setattr)
+61. [slice](#slice)
+62. [sorted](#sorted)
+63. [@staticmethod](#staticmethod)
+64. [str](#str)
+65. [sum](#sum)
+66. [super](#super)
+67. [tuple](#tuple)
+68. [type](#type)
+69. [vars](#vars)
+70. [zip](#zip)
+71. [\_\_import__](#import)
 
 ## <a id="abs">abs(x)</a>
 Возвращает абсолютное значение числа. Аргумент может быть целым числом, числом с плавающей запятой или объектом, реализующим \_\_abs__(). Если аргумент является комплексным числом, возвращается его величина.
@@ -227,27 +224,127 @@ getattr(my, 'attr1')
 `b` | двоичный режим
 `t` | текстовый режим (по умолчанию)
 `+` | открыт для обновления (чтение и запись)
+buffering - политика буферизации (0 - отключить буферизацию (разрешено только в двоичном режиме), 1 - выбрать буферизацию строк (можно использовать только при записи в текстовом режиме), и целое число > 1 - указать размер в байтах буфера фрагментов фиксированного размера.). encoding - имя кодировки, используемой для декодирования или кодирования файла. errors - как следует обрабатывать ошибки кодирования и декодирования, ее нельзя использовать в двоичном режиме.
+Имя | Значение
+--- | ---
+`strict` | вызвать ValueError в случае ошибки кодирования. Значение по умолчанию None имеет тот же эффект.
+`ignore` | игнорирует ошибки. Обратите внимание, что игнорирование ошибок кодирования может привести к потере данных.
+`replace` | вызывает вставку маркера замены там, где есть неверные данные.
+`surrogateescape` | любые неправильные байты будут представляться как единицы младшего суррогатного кода в диапазоне от U+DC80 до U+DCFF.
+`xmlcharrefreplace` | поддерживается только при записи в файл. Символы, не поддерживаемые кодировкой, заменяются соответствующей ссылкой на символы XML &#nnn.
+`backslashreplace` | заменяет искаженные данные escape-последовательностями с обратной косой чертой.
+`namereplace` | заменяет неподдерживаемые символы \N{...}escape-последовательностями.
+newline - определяет, как анализировать символы новой строки из потока. Это может быть None, '', '\n', '\r', и '\r\n'. closefd - базовый дескриптор файла будет оставаться открытым при закрытии файла, если указан дескриптор файла и closefd=False. opener - дескриптор открытого файла.
+```python
+import os
+dir_fd = os.open('somedir', os.O_RDONLY)
+def opener(path, flags):
+    return os.open(path, flags, dir_fd=dir_fd)
+
+with open('spamspam.txt', 'w', opener=opener) as f: pass
+os.close(dir_fd)
+```
 ## <a id="ord">ord(c)</a>
+Возвращает целое число, представляющее код Юникода полученного символа.
 ## <a id="pow">pow(base, exp, mod=None)</a>
+Возвращает base в степени exp. Если mod присутствует, возвращает base в степени exp по модулю.
 ## <a id="print">print(*objects, sep=' ', end='\n', file=None, flush=False)</a>
+Выводит обьекты в консоль, разделяя sep и оканчивая end. Все аргументы без ключевого преобразуются в строки и выводятся.
 ## <a id="property">class property(fget=None, fset=None, fdel=None, doc=None)</a>
-## <a id="getter">@getter</a>
-## <a id="setter">@setter</a>
-## <a id="deleter">@deleter</a>
+Возвращает атрибут свойства. fget - функция получения значения атрибута, fset - функция установки значения атрибута, fdel - функция удаления значения атрибута, doc - создает строку документации для атрибута:
+```python
+class C:
+    def __init__(self):
+        self._x = None
+
+    def getx(self):
+        return self._x
+
+    def setx(self, value):
+        self._x = value
+
+    def delx(self):
+        del self._x
+
+    x = property(getx, setx, delx, "I'm the 'x' property.")
+```
+Декоратор @property превращает voltage() в метод получения атрибута с тем же именем, доступного только для чтения:
+```python
+class Parrot:
+    def __init__(self):
+        self._voltage = 100000
+
+    @property
+    def voltage(self):
+        """Get the current voltage."""
+        return self._voltage
+```
+Обьект свойства имеет методы `getter`, `setter`, `deleter`, которые можно использовать в качестве декораторов, которые создают копию св-ва с соответствующей функцией доступа:
+```python
+class C:
+    def __init__(self):
+        self._x = None
+
+    @property
+    def x(self):
+        """I'm the 'x' property."""
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        self._x = value
+
+    @x.deleter
+    def x(self):
+        del self._x
+```
+Этот код в точности эквивалентен первому примеру. Обязательно дайте дополнительным функциям то же имя, что и исходному свойству.
 ## <a id="range">class range(start, stop, step=1)</a>
+Неизменяемый тип последовательности.
 ## <a id="repr">repr(object)</a>
+Возвращает строку, содержающую печатное представление обьекта.
 ## <a id="reversed">reversed(seq)</a>
+Возвращает обратный итератор. seq должен поддерживать \_\_reversed__() или \_\_len__() и \_\_getitem__().
 ## <a id="round">round(number, ndigits=None)</a>
+Возвращает число, округленное до ndigits знаков после запятой.
 ## <a id="set">class set(iterable)</a>
+Возвращает новый обьект set с элементами из iterable.
 ## <a id="setattr">setattr(object, name, value)</a>
+Аналог getattr(). Принимает обьект, строку, произвольное значение. Присваивает значение атрибуту.
 ## <a id="slice">class slice(start, stop, step=None)</a>
+Возвращает slice обьект, представляющий set индексов заданным `range(start, stop, step)`. 
 ## <a id="sorted">sorted(iterable, /, *, key=None, reverse=False)</a>
+Возвращает новый отсортированный список из элементов iterable. key - функция для извлечения ключа сравнения из каждого элемента в итерации, reverse - производить ли обратную сортировку.
 ## <a id="staticmethod">@staticmethod</a>
+Преобразует метод в статический метод. Статический метод не получает неявного первого аргумента:
+```python
+class C:
+    @staticmethod
+    def f(arg1, arg2, argN): pass
+
+
+def regular_function(): pass
+
+class C:
+    method = staticmethod(regular_function)
+```
 ## <a id="str">class str(object=b'', encoding='utf-8', errors='strict')</a>
+Возвращает обьект str.
 ## <a id="sum">sum(iterable, /, start=0)</a>
+Возвращает сумму полученных обьектов.
 ## <a id="super">class super(type, object_or_type=None)</a>
+Возвращает прокси-обьект, который делегирует вызовы методом родительскому или родственному классу type. object_or_type - порядок разрешения метода для поиска. Используется для ссылки на родительские классы. не называя из явно или для поддержки совмесного множественного наследования в динамической среде выполения.
 ## <a id="tuple">class tuple(iterable)</a>
+Неизменяемый тип последовательности.
 ## <a id="type">class type(name, bases, dict, **kwds)</a>
+Возвращает тип обьекта (object.\_\_class__).
 ## <a id="vars">vars(object)</a>
+Возвращает \_\_dict__ атрибут.
 ## <a id="zip">zip(*iterables, strict=False)</a>
+Возвращает итератор кортежей, где i-й кортеж содержит i-й элемент из каждой итерации аргументов. Превращает строки в столбцы, а столбцы в строки. Если итерации имеют одинаковую длину, то рекомендуется применить strict=True:
+```python
+>>> list(zip(range(3), ['fee', 'fi', 'fo', 'fum']))
+[(0, 'fee'), (1, 'fi'), (2, 'fo')]
+```
 ## \_\_import__<a id="import">\_\_import__(name, globals=None, locals=None, fromlist=(), level=0)</a>
+Вызывается оператором import.
