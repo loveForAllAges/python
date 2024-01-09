@@ -30,7 +30,12 @@
 Строка печатуемых символов ASCII (`gidits`, `ascii_letters`, `punctuation`, `whitespace`).
 ##### string.whitespace
 Строка пробелов ASCII (пробелы, табуляция, перевод строки, возврат, перевод страницы, вертикальная табуляция).
-
+##### Пример
+```python
+from string import Template
+t = Template('$atext new text $b.')
+t.substitute(a='New', b='correct')
+```
 
 ## <div id="2">2. re - Операции с регулярными выражениями</div>
 Предоставляет операции сопоставления регулярных выражений (как в Perl). Модуль определяет несколько функций, констант, исключений.
