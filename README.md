@@ -1,15 +1,15 @@
 # Документация по ЯП Python
 
-1. [Функции](src/1_functions.md)
-2. [Типы](src/2_types.md)
-3. Исключения
-4. [Примеры](src/4_examples.md)
-5. Модули
-    - [Обработка текста](src/modules/5_1_modules.md)
-    - [Двоичные данные](src/modules/5_2_modules.md)
-    - [Типы данных](src/modules/5_3_modules.md)
-    - Числа и математика
-    - Функциональное программирование
+1\. [Функции](src/1_functions.md)<br>
+2\. [Типы](src/2_types.md)<br>
+3\. Исключения<br>
+4\. [Примеры](src/4_examples.md)<br>
+5\. Модули<br>
+    5.1\. [Обработка текста](src/modules/5_1_modules.md)<br>
+    - [Двоичные данные](src/modules/5_2_modules.md)<br>
+    - [Типы данных](src/modules/5_3_modules.md)<br>
+    - [Числа и математика](src/modules/5_4_modules.md)<br>
+    - [Функциональное программирование](src/modules/5_5_modules.md)<br>
     - Доступ к файлам и каталогам
     - Сохранение данных
     - Сжатие и архивирование данных

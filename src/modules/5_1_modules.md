@@ -170,6 +170,7 @@ __compare(a, b)__ - сравнивает две последовательнос
 
 
 ## <div id="4">4. textwrap - Перенос и заполнение текста</div>
+> Модуль форматирует абзацы текста по заданной ширине.
 Предоставляет фукнции и класс `TextWrapper` для форматирования текста по ширине экрана или определенному количеству символов.
 #### Функции
 ##### textwrap.wrap(text, width=70, *, initial_indent='', subsequent_indent='', expand_tabs=True, replace_whitespace=True, fix_sentence_endings=False, break_long_words=True, drop_whitespace=True, break_on_hyphens=True, tabsize=8, max_lines=None, placeholder=' [...]')
@@ -182,7 +183,12 @@ __compare(a, b)__ - сравнивает две последовательнос
 Удаляет все общие начальные пробелы из каждой строки `text`.
 ##### textwrap.indent(text, prefix, predicate=None)
 Добавляет `prefix` в начало выделенных строк `text`.
-
+```python
+doc = """The wrap() method is just like fill() except that it returns
+a list of strings instead of one big string with newlines to separate
+the wrapped lines."""
+print(textwrap.fill(doc, width=40))
+```
 
 ## <div id="5">5. unicodedata - База данных Юникод</div>
 Предоставляет доступ к БД символов Юникода, которая определяет свойства символов для всех символов Юникода.

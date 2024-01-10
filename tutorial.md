@@ -1,7 +1,3 @@
-
-
-
-
 ## Модули стандартной библиотеки
 ### os
 Модуль для взаимодействия с ОС.
@@ -53,32 +49,6 @@ re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
 Для простых манипуляций рекомендуется использовать строковые методы, так как их легче читать и отлаживать:
 ```python
 'tea for too'.replace('too', 'two')
-```
-### math
-Модуль предоставляет доступ к базовым функциям библиотеки Си для вычислений с плавающей запятой:
-```python
-import math
-math.cos(math.pi / 4)
-math.log(1024, 2)
-```
-### random
-Модуль предоставляет инструменты для случайного выбора:
-```python
-import random
-random.choice(['apple', 'pear', 'banana'])
-'apple'
-random.sample(range(100), 10)
-random.random()
-random.randrange(6) 
-```
-### statistics
-Модуль рассчитывает основные статические свойства (среднее значение, медиану, дисперсию и т.д.) числовых данных:
-```python
-import statistics
-data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
-statistics.mean(data)
-statistics.median(data)
-statistics.variance(data)
 ```
 ### urllib.request.urlopen
 Простой модуль для доступа в Интернет, обработки интернет-протоколов и получения данных из URL адресов:
@@ -141,21 +111,6 @@ class TestFoo(unittest.TestCase):
         self.assertEqual(foo(2), 4)
 unittest.main()
 ```
-### reprlib
-Модуль предоставляет версию repr() для сокращенного отображения больших или глубоко вложенных контейнеров:
-```python
-import reprlib
-reprlib.repr(set('supercalifragilisticexpialidocious'))
-```
-### textwrap
-Модуль форматирует абзацы текста по заданной ширине.
-```python
-import textwrap
-doc = """The wrap() method is just like fill() except that it returns
-a list of strings instead of one big string with newlines to separate
-the wrapped lines."""
-print(textwrap.fill(doc, width=40))
-```
 ### locale
 Модуль имеет доступ к БД форматов данных, обеспечивает прямой способ форматирования чисел с помощью разделителей групп:
 ```python
@@ -193,12 +148,4 @@ print('Main program waited until background was done.')
 import logging
 logging.debug('Debugging information')
 ```
-### decimal
-Модуль с Decimal типом данных для десятичной арифметики с плавающей запятой. Полезно для финансовых вычислений, точности десятичного представления, контроля округления, отслеживания значимых десятичных знаков:
-```python
->>> from decimal import *
->>> round(Decimal('0.70') * Decimal('1.05'), 2)
-Decimal('0.74')
->>> round(.70 * 1.05, 2)
-0.73
-```
+
