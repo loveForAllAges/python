@@ -22,18 +22,6 @@ parser.add_argument('filenames', nargs='+')
 parser.add_argument('-l', '--lines', type=int, default=10)
 args = parser.parse_args()
 ```
-### re
-Модуль предоставляет инструменты регулярных выражений для расширенной обработки строк. Предлагают краткие и оптимизированные решения для сложных сопоставлений и манипуляций:
-```python
-import re
-
-re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest')
-re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
-```
-Для простых манипуляций рекомендуется использовать строковые методы, так как их легче читать и отлаживать:
-```python
-'tea for too'.replace('too', 'two')
-```
 ### urllib.request.urlopen
 Простой модуль для доступа в Интернет, обработки интернет-протоколов и получения данных из URL адресов:
 ```python
@@ -56,15 +44,6 @@ From: email@example.org
 Beware the Ides of March.
 """)
 server.quit()
-```
-### zlib
-Модуль архивирования и сжатия данных:
-```python
-import zlib
-s = b'witch which has which witches wrist watch'
-t = zlib.compress(s)
-zlib.decompress(t)
-zlib.crc32(s)
 ```
 ### timeit.Timer
 Модуль измерения времени выполнения кода

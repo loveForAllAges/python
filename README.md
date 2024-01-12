@@ -63,8 +63,19 @@
           4. [marshal - Внутренняя сериализация объектов Python](src/modules/5_7_modules.md#4)
           5. [dbm - Интерфейсы к «базам данных» Unix](src/modules/5_7_modules.md#5)
           6. [sqlite3 - Интерфейс DB-API 2.0 для баз данных SQLite](src/modules/5_7_modules.md#6)
-    8.  Сжатие и архивирование данных
-    9.  Форматы файлов
+    8.  [Сжатие и архивирование данных](src/modules/5_8_modules.md)
+          1. [zlib - Сжатие, совместимое с gzip](src/modules/5_8_modules.md#1)
+          2. [gzip - Поддержка файлов gzip](src/modules/5_8_modules.md#2)
+          3. [bz2 - Поддержка сжатия bzip2](src/modules/5_8_modules.md#3)
+          4. [lzma - Сжатие с использованием алгоритма LZMA](src/modules/5_8_modules.md#4)
+          5. [zipfile - Работа с ZIP-архивами](src/modules/5_8_modules.md#5)
+          6. [tarfile - Чтение и запись файлов tar-архива](src/modules/5_8_modules.md#6)
+    9.  [Форматы файлов](src/modules/5_9_modules.md)
+          1. [csv - Чтение и запись CSV-файлов](src/modules/5_9_modules.md#1)
+          2. [configparser - Парсер конфигурационного файла](src/modules/5_9_modules.md#2)
+          3. [tomllib - Разбор файлов TOML](src/modules/5_9_modules.md#3)
+          4. [netrc - обработка файлов netrc](src/modules/5_9_modules.md#4)
+          5. [plistlib - Генерация и анализ .plist файлов Apple](src/modules/5_9_modules.md#5)
     10. Криптография
     11. Службы ОС
     12. Параллельное выполнение
