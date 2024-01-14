@@ -11,17 +11,6 @@ print(sys.argv)
 ```python
 sys.exit()
 ```
-### argparse
-Модуль для более сложной обработки аргументов командной строки:
-```python
-import argparse
-
-'python top.py --lines=5 alpha.txt beta.txt'
-parser = argparse.ArgumentParser(prog='top',description='Show top lines from each file')
-parser.add_argument('filenames', nargs='+')
-parser.add_argument('-l', '--lines', type=int, default=10)
-args = parser.parse_args()
-```
 ### urllib.request.urlopen
 Простой модуль для доступа в Интернет, обработки интернет-протоколов и получения данных из URL адресов:
 ```python
@@ -104,11 +93,5 @@ background.start()
 print('The main program continues to run in foreground.')
 background.join()
 print('Main program waited until background was done.')
-```
-### logging
-Модуль предоставляет полнофункциональную и гибкую систему логирования. В самом простом случае сообщения журнала отправляются в файл или в sys.stderr:
-```python
-import logging
-logging.debug('Debugging information')
 ```
 
