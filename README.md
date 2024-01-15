@@ -100,8 +100,22 @@
           6.  [queue - Класс синхронизированной очереди](src/modules/5_12_modules.md#6)
           7.  [contextvars - Контекстные переменные](src/modules/5_12_modules.md#7)
           8.  [thread - Низкоуровневый API многопоточности](src/modules/5_12_modules.md#8)
-    13. Сети и межпроцессорное взаимодействие
-    14. Обработка данных через Интернет
+    13. [Сети и межпроцессорное взаимодействие](src/modules/5_13_modules.md)
+          1.  [asyncio - Асинхронный ввод-вывод](src/modules/5_13_modules.md#1)
+          2.  [socket - Низкоуровневый сетевой интерфейс](src/modules/5_13_modules.md#2)
+          3.  [ssl - Оболочка TLS/SSL для объектов сокетов](src/modules/5_13_modules.md#3)
+          4.  [select - Ожидание завершения ввода-вывода](src/modules/5_13_modules.md#4)
+          5.  [selectors - Высокоуровневое мультиплексирование ввода-вывода](src/modules/5_13_modules.md#5)
+          6.  [signal - Установите обработчики асинхронных событий](src/modules/5_13_modules.md#6)
+          7.  [mmap - Поддержка файлов, отображаемых в памяти](src/modules/5_13_modules.md#7)
+    14. [Обработка данных через Интернет](src/modules/5_14_modules.md)
+          1.  [email - Пакет обработки электронной почты и MIME](src/modules/5_14_modules.md#1)
+          2.  [json - Кодер и декодер JSON](src/modules/5_14_modules.md#2)
+          3.  [mailbox - Работа с почтовыми ящиками различных форматов](src/modules/5_14_modules.md#3)
+          4.  [mimetypes - Сопоставление имен файлов с типами MIME](src/modules/5_14_modules.md#4)
+          5.  [base64 - Кодировки данных Base16, Base32, Base64, Base85](src/modules/5_14_modules.md#5)
+          6.  [binascii - Преобразование между двоичным кодом и ASCII](src/modules/5_14_modules.md#6)
+          7.  [quopri - Кодирование и декодирование MIME-данных, пригодных для печати](src/modules/5_14_modules.md#7)
     15. Обработка структурированной разметки
     16. Интернет-протоколы и поддержка
     17. Мультимедиа

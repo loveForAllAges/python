@@ -10,7 +10,7 @@
 
 
 ## <div id="1">1. threading - Потоковый параллелизм</div>
-> Модуль предоставляет классы, фукнции и константы для создания и управления потоками выполнения. Потоки - легковесные подпроцессы, которые выполняются параллельно. Необходимо быть осторожным с синхронизацией доступа к общим ресурсам, чтобы избежат проблем с гонками данных.
+> Модуль предоставляет классы, фукнции и константы для создания и управления потоками выполнения. Потоки - легковесные подпроцессы, которые выполняются параллельно. Необходимо быть осторожным с синхронизацией доступа к общим ресурсам, чтобы избежат проблем с гонками данных. Основная проблема многопоточных приложений - координация потоков, которые совместно используют данные или другие ресурсы
 ### Использование
 - Параллельное выполнение независимых задач.
 - Загрузка данных из сети или обработка пользовательского ввода, не блокируя основной поток выполнения программы.
@@ -31,6 +31,28 @@ my_thread.start()
 my_thread.join()
 
 print("Main thread continues...")
+```
+
+```python
+import threading, zipfile
+
+class AsyncZip(threading.Thread):
+    def __init__(self, infile, outfile):
+        threading.Thread.__init__(self)
+        self.infile = infile
+        self.outfile = outfile
+
+    def run(self):
+        f = zipfile.ZipFile(self.outfile, 'w', zipfile.ZIP_DEFLATED)
+        f.write(self.infile)
+        f.close()
+        print('Finished background zip of:', self.infile)
+
+background = AsyncZip('mydata.txt', 'myarchive.zip')
+background.start()
+print('The main program continues to run in foreground.')
+background.join()
+print('Main program waited until background was done.')
 ```
 
 

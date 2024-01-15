@@ -71,27 +71,3 @@ locale.setlocale(locale.LC_ALL, 'russian')
 conv = locale.localeconv()
 output = locale.format_string("%d %s", (1000000, conv['currency_symbol']), grouping=True)
 ```
-### threading
-Модуль для выполнения задач в фоновом режиме - другом потоке. Основная проблема многопоточных приложений — координация потоков, которые совместно используют данные или другие ресурсы:
-```python
-import threading, zipfile
-
-class AsyncZip(threading.Thread):
-    def __init__(self, infile, outfile):
-        threading.Thread.__init__(self)
-        self.infile = infile
-        self.outfile = outfile
-
-    def run(self):
-        f = zipfile.ZipFile(self.outfile, 'w', zipfile.ZIP_DEFLATED)
-        f.write(self.infile)
-        f.close()
-        print('Finished background zip of:', self.infile)
-
-background = AsyncZip('mydata.txt', 'myarchive.zip')
-background.start()
-print('The main program continues to run in foreground.')
-background.join()
-print('Main program waited until background was done.')
-```
-
