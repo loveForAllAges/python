@@ -21,7 +21,7 @@ with urlopen('http://worldtimeapi.org/api/timezone/etc/UTC.txt') as response:
         if line.startswith('datetime'):
             print(line.rstrip())
 ```
-### smptlib
+### smtplib
 Простой модуль для доступа в Интернет, обработки интернет-протоколов и отправки email. Необходим почтовый сервер на локальном хосте:
 ```python
 import smtplib
@@ -62,12 +62,4 @@ class TestFoo(unittest.TestCase):
     def test_foo(self):
         self.assertEqual(foo(2), 4)
 unittest.main()
-```
-### locale
-Модуль имеет доступ к БД форматов данных, обеспечивает прямой способ форматирования чисел с помощью разделителей групп:
-```python
-import locale
-locale.setlocale(locale.LC_ALL, 'russian')
-conv = locale.localeconv()
-output = locale.format_string("%d %s", (1000000, conv['currency_symbol']), grouping=True)
 ```

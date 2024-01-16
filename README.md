@@ -18,7 +18,7 @@
          1. [struct - Интерпретирование байтов, как упакованные двоичные данные](src/modules/5_2_modules.md#1)
          2. [codecs - Реестр кодеков и базовые классы](src/modules/5_2_modules.md#2)
     3.  [Типы данных](src/modules/5_3_modules.md)
-          1. [datetime - Основные типы даты и времени `Full`](src/modules/5_3_modules.md#1)
+          1. [datetime - Основные типы даты и времени](src/modules/5_3_modules.md#1) `Full`
           2. [zoneinfo - Поддержка часовых поясов IANA](src/modules/5_3_modules.md#2)
           3. [calendar - Общие функции, связанные с календарем](src/modules/5_3_modules.md#3)
           4. [collections - Типы данных контейнера](src/modules/5_3_modules.md#4)
@@ -119,12 +119,21 @@
     15. Обработка структурированной разметки
     16. Интернет-протоколы и поддержка
     17. Мультимедиа
-    18. Интерналионализация
-    19. Рамки программы
-    20. Графические инструменты
+    18. [Интерналионализация](src/modules/5_18_modules.md)
+          1.  [gettext - Услуги многоязычной интернационализации](src/modules/5_18_modules.md#1)
+          2.  [locale - Услуги по интернационализации](src/modules/5_18_modules.md#2)
+    19. [Рамки программы](src/modules/5_19_modules.md)
+          1.  [turtle - Графика черепахи](src/modules/5_19_modules.md#1)
+          2.  [cmd - Поддержка интерпретаторов строко-ориентированных команд](src/modules/5_19_modules.md#2)
+          3.  [shlex - Простой лексический анализ](src/modules/5_19_modules.md#3)
+    20. [Графические инструменты](src/modules/5_20_modules.md)
+          1.  [tkinter - Интерфейс Python для Tcl/Tk](src/modules/5_20_modules.md#1)
     21. Инструменты разработки
     22. Отладка и профилирование
-    23. Упаковка и распространение ПО
+    23. [Упаковка и распространение ПО](src/modules/5_23_modules.md)
+          1.  [ensurepip - Загрузка pip установщика](src/modules/5_23_modules.md#1)
+          2.  [venv - Создание виртуальных сред](src/modules/5_23_modules.md#2)
+          3.  [zipapp - Управление исполняемыми zip-архивами Python](src/modules/5_23_modules.md#3)
     24. Время выполнения
     25. Пользовательские интерпретаторы
     26. Импорт модулей
