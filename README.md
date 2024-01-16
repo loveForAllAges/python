@@ -116,9 +116,13 @@
           5.  [base64 - Кодировки данных Base16, Base32, Base64, Base85](src/modules/5_14_modules.md#5)
           6.  [binascii - Преобразование между двоичным кодом и ASCII](src/modules/5_14_modules.md#6)
           7.  [quopri - Кодирование и декодирование MIME-данных, пригодных для печати](src/modules/5_14_modules.md#7)
-    15. Обработка структурированной разметки
+    15. [Обработка структурированной разметки](src/modules/5_15_modules.md)
+          1.  [html - Поддержка языка гипертекстовой разметки](src/modules/5_15_modules.md#1)
+          2.  [Модули обработки XML](src/modules/5_15_modules.md#2)
     16. Интернет-протоколы и поддержка
-    17. Мультимедиа
+    17. [Мультимедиа](src/modules/5_17_modules.md)
+          1.  [wave - Чтение и запись файлов WAV](src/modules/5_17_modules.md#1)
+          2.  [colorsys - Преобразования между цветовыми системами](src/modules/5_17_modules.md#2)
     18. [Интерналионализация](src/modules/5_18_modules.md)
           1.  [gettext - Услуги многоязычной интернационализации](src/modules/5_18_modules.md#1)
           2.  [locale - Услуги по интернационализации](src/modules/5_18_modules.md#2)
@@ -127,18 +131,22 @@
           2.  [cmd - Поддержка интерпретаторов строко-ориентированных команд](src/modules/5_19_modules.md#2)
           3.  [shlex - Простой лексический анализ](src/modules/5_19_modules.md#3)
     20. [Графические инструменты](src/modules/5_20_modules.md)
-          1.  [tkinter - Интерфейс Python для Tcl/Tk](src/modules/5_20_modules.md#1)
+          1. [tkinter - Интерфейс Python для Tcl/Tk](src/modules/5_20_modules.md#1)
     21. Инструменты разработки
-    22. Отладка и профилирование
+    22. [Отладка и профилирование](src/modules/5_22_modules.md)
+          1.  [bdb - Фреймворк отладчика](src/modules/5_22_modules.md#1)
+          2.  [faulthandler - Дамп обратной трассировки Python](src/modules/5_22_modules.md#2)
+          3.  [pdb - Отладчик Python](src/modules/5_22_modules.md#3)
+          4.  [timeit - Измерение времени выполнения небольших фрагментов кода](src/modules/5_22_modules.md#4)
+          5.  [trace - Отслеживание или отслеживание выполнения операторов Python](src/modules/5_22_modules.md#5)
+          6.  [tracemalloc - Отслеживание распределения памяти](src/modules/5_22_modules.md#6)
     23. [Упаковка и распространение ПО](src/modules/5_23_modules.md)
           1.  [ensurepip - Загрузка pip установщика](src/modules/5_23_modules.md#1)
           2.  [venv - Создание виртуальных сред](src/modules/5_23_modules.md#2)
           3.  [zipapp - Управление исполняемыми zip-архивами Python](src/modules/5_23_modules.md#3)
-    24. Время выполнения
+    24. Время выполнения Python
     25. Пользовательские интерпретаторы
     26. Импорт модулей
     27. Языковые службы
     28. Специальные службы для Windows
     29. Специальные службы для Unix
-    30. Интерфейс командной строки
-    31. Замененные модули
