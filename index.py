@@ -73,3 +73,13 @@
 # print(s.about(), s.age())
 # print(t.about(), t.age())
 
+
+class MyClass(object):
+    pass
+
+print(MyClass.__name__)
+print(MyClass.__module__)
+print(MyClass.__dict__)
+print(MyClass.__bases__)
+print(MyClass.__doc__)
+print(MyClass.__annotations__)

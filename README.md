@@ -18,7 +18,7 @@
          1. [struct - Интерпретирование байтов, как упакованные двоичные данные](src/modules/5_2_modules.md#1)
          2. [codecs - Реестр кодеков и базовые классы](src/modules/5_2_modules.md#2)
     3.  [Типы данных](src/modules/5_3_modules.md)
-          1. [datetime - Основные типы даты и времени](src/modules/5_3_modules.md#1) `Full`
+          1. [datetime - Основные типы даты и времени](src/modules/5_3_modules.md#1)
           2. [zoneinfo - Поддержка часовых поясов IANA](src/modules/5_3_modules.md#2)
           3. [calendar - Общие функции, связанные с календарем](src/modules/5_3_modules.md#3)
           4. [collections - Типы данных контейнера](src/modules/5_3_modules.md#4)
@@ -200,4 +200,5 @@
           11. [pickletools - Инструменты для разработчиков Pickle](src/modules/5_27_modules.md#11)
     28. Специальные службы для Windows
     29. Специальные службы для Unix
-6. [Остальное](src/6_other.md)
+6. [Глоссарий](src/6_glossary.md)
+7. [ООП](src/7_oop.md)
