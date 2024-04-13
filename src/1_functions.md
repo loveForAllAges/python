@@ -1,81 +1,23 @@
 # Встроенные функции
 
-1. [abs](#abs)
-2. [aiter](#aiter)
-3. [all](#all)
-4. [anext](#anext)
-5. [any](#any)
-6. [ascii](#ascii)
-7. [bin](#bin)
-8. [bool](#bool)
-9. [breakpoint](#breakpoint)
-10. [bytearray](#bytearray)
-11. [bytes](#bytes)
-12. [callable](#callable)
-13. [chr](#chr)
-14. [@classmethod](#classmethod)
-15. [compile](#compile)
-16. [complex](#complex)
-17. [delattr](#delattr)
-18. [dict](#dict)
-19. [dir](#dir)
-20. [divmod](#divmod)
-21. [enumerate](#enumerate)
-22. [eval](#eval)
-23. [exec](#exec)
-24. [filter](#filter)
-25. [float](#float)
-26. [format](#format)
-27. [frozenset](#frozenset)
-28. [getattr](#getattr)
-29. [globals](#globals)
-30. [hasattr](#hasattr)
-31. [hash](#hash)
-32. [help](#help)
-33. [hex](#hex)
-34. [id](#id)
-35. [input](#input)
-36. [int](#int)
-37. [isinstance](#isinstance)
-38. [issubclass](#issubclass)
-39. [iter](#iter)
-40. [len](#len)
-41. [list](#list)
-42. [locals](#locals)
-43. [map](#map)
-44. [max](#max)
-45. [memoryview](#memoryview)
-46. [min](#min)
-47. [next](#next)
-48. [object](#object)
-49. [oct](#oct)
-50. [open](#open)
-51. [ord](#ord)
-52. [pow](#pow)
-53. [print](#print)
-54. [property](#property)
-55. [range](#range)
-56. [repr](#repr)
-57. [reversed](#reversed)
-58. [round](#round)
-59. [set](#set)
-60. [setattr](#setattr)
-61. [slice](#slice)
-62. [sorted](#sorted)
-63. [@staticmethod](#staticmethod)
-64. [str](#str)
-65. [sum](#sum)
-66. [super](#super)
-67. [tuple](#tuple)
-68. [type](#type)
-69. [vars](#vars)
-70. [zip](#zip)
-71. [\_\_import__](#import)
-
 ## <a id="abs">abs(x)</a>
 Возвращает абсолютное значение числа. Аргумент может быть целым числом, числом с плавающей запятой или объектом, реализующим \_\_abs__(). Если аргумент является комплексным числом, возвращается его величина.
+```python
+abs(-1) # 1
+abs(0) # 0
+abs(1) # 1
+abs(3.14) # 3.14
+abs(3 + 2j) # 3.6055512754639896
+abs(0x10) # 16
+abs(0b10) # 2
+abs(0o20) # 16
+```
+
+
 ## <a id="aiter">aiter(async_iterable)</a>
 Возвращает асинхронный итератор для асинхронной итерации. Эквивалент звонка x.\_\_aiter__(). В отличие от iter(), aiter()не имеет варианта с двумя аргументами:
+
+
 ## <a id="all">all(iterable)</a>
 Возвращает значение True, если все элементы итерируемого объекта истинны (или если итерируемый объект пуст):
 ## <a id="anext">anext(async_iterator)</a>
