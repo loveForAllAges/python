@@ -1,15 +1,18 @@
 # Python Cheatsheet
-
+Version: 3.12.3
 
 ## Contents
 - Built-in functions
+- Types
+- Exceptions
+- Standard modules
+- OOP
 
 
-## Встроенные функции
-- __abs__: Возвращает абсолютное значение числа.
+## Built-in functions
+- __`abs`__: Возвращает абсолютное значение числа.
 [_Подробнее_](./src/1_functions.md#abs)
-- __aiter__: Возвращает асинхронный итератор для асинхронной итерации.
-[_Подробнее_](./src/1_functions.md#aiter)
+- [__`aiter`__](./src/1_functions.md#aiter): Возвращает асинхронный итератор для асинхронной итерации.
 - __all__: Возвращает True, если все элементы итерируемого объекта имеют значение True.
 [_Подробнее_](./src/1_functions.md#all)
 - __anext__: Возвращает следующий элемент из асинхронного итератора.
@@ -20,6 +23,13 @@
 [_Подробнее_](./src/1_functions.md#ascii)
 
 
+## Types
+
+
+## Exceptions
+
+
+## Standard modules
 
 
 1. [Функции](src/1_functions.md)
