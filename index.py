@@ -1,5 +1,8 @@
 
 
+all([True, True, True]) # True
+all((0, True, False)) # False
+all({1, 1, 1}) # True
 
 
 # class MyClass:
@@ -76,12 +79,12 @@
 # print(t.about(), t.age())
 
 
-class MyClass(object):
-    pass
+# class MyClass(object):
+#     pass
 
-print(MyClass.__name__)
-print(MyClass.__module__)
-print(MyClass.__dict__)
-print(MyClass.__bases__)
-print(MyClass.__doc__)
-print(MyClass.__annotations__)
+# print(MyClass.__name__)
+# print(MyClass.__module__)
+# print(MyClass.__dict__)
+# print(MyClass.__bases__)
+# print(MyClass.__doc__)
+# print(MyClass.__annotations__)
