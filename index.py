@@ -1,8 +1,17 @@
 
 
-all([True, True, True]) # True
-all((0, True, False)) # False
-all({1, 1, 1}) # True
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # class MyClass:
