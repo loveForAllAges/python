@@ -22,7 +22,7 @@ Version: 3.12.3
 - __`bytearray`__: Возвращает изменяемый массив байт. [_Подробнее_](#bytearray)
 - __`bytes`__: Возвращает неименяемый массив байт. [_Подробнее_](#bytes)
 - __`callable`__: Является ли объект вызываемым. [_Подробнее_](#callable)
-- __`chr`__: Возвращает строку, представляющую символ Юникода. [_Подробнее_](#chr)
+- __`chr`__: Возвращает символ по коду Юникода. [_Подробнее_](#chr)
 - __`classmethod`__: Преоразует метод в метод класса. [_Подробнее_](#classmethod)
 - __`compile`__: Компилирует строку в код, готовый к выполнению. [_Подробнее_](#compile)
 - __`complex`__: Возвращает комплексное число. [_Подробнее_](#complex)
@@ -60,7 +60,7 @@ Version: 3.12.3
 - __`object`__: Возвращает новый объект. [_Подробнее_](#object)
 - __`oct`__: Преобразует целое число в восьмеричную строку. [_Подробнее_](#oct)
 - __`open`__: Открывает файл и возвращает файловый объект. [_Подробнее_](#open)
-- __`ord`__: Возвращает целое число из кода Юникода. [_Подробнее_](#ord)
+- __`ord`__: Возвращает код Юникода по символу. [_Подробнее_](#ord)
 - __`pow`__: Возводит число в степень. [_Подробнее_](#pow)
 - __`print`__: Выводит объекты. [_Подробнее_](#print)
 - __`property`__: Возвращает атрибут свойства. [_Подробнее_](#property)
@@ -69,18 +69,18 @@ Version: 3.12.3
 - __`reversed`__: Возвращает обратный итератор. [_Подробнее_](#reversed)
 - __`round`__: Округляет число. [_Подробнее_](#round)
 - __`set`__: Возвращает объект set. [_Подробнее_](#set)
-- __`setattr`__: 
-- __`slice`__:
-- __`sorted`__:
-- __`staticmethod`__:
-- __`str`__:
-- __`sum`__:
-- __`super`__:
-- __`tuple`__:
-- __`type`__:
-- __`vars`__:
-- __`zip`__:
-- __`import`__:
+- __`setattr`__: Присваивает значение атрибуту. [_Подробнее_](#setattr)
+- __`slice`__: Возвращает часть объекта. [_Подробнее_](#slice)
+- __`sorted`__: Возвращает новый отсортированный список. [_Подробнее_](#sorted)
+- __`staticmethod`__: Преобразует метод в статический. [_Подробнее_](#staticmethod)
+- __`str`__: Возвращает объект str. [_Подробнее_](#str)
+- __`sum`__: Возвращает сумму элементов. [_Подробнее_](#sum)
+- __`super`__: Делегирует вызовы методов родительскому объекту. [_Подробнее_](#super)
+- __`tuple`__: Возвращает неизменяемый тип последовательности tuple. [_Подробнее_](#tuple)
+- __`type`__: Возвращает тип объекта. [_Подробнее_](#type)
+- __`vars`__: Возвращает атрибут dict. [_Подробнее_](#vars)
+- __`zip`__: Возвращает итератор кортежей. [_Подробнее_](#zip)
+- __`import`__: Вызывается оператором импорта. [_Подробнее_](#import)
 
 
 ## Types
@@ -893,50 +893,74 @@ with open('spam.txt') as spam:
 
 
 
-## <a id="ord">ord(c)</a>
-Возвращает целое число, представляющее код Юникода полученного символа.
-## <a id="pow">pow(base, exp, mod=None)</a>
-Возвращает base в степени exp. Если mod присутствует, возвращает base в степени exp по модулю.
-## <a id="print">print(*objects, sep=' ', end='\n', file=None, flush=False)</a>
-Выводит обьекты в консоль, разделяя sep и оканчивая end. Все аргументы без ключевого преобразуются в строки и выводятся.
-## <a id="property">class property(fget=None, fset=None, fdel=None, doc=None)</a>
-Возвращает атрибут свойства. fget - функция получения значения атрибута, fset - функция установки значения атрибута, fdel - функция удаления значения атрибута, doc - создает строку документации для атрибута:
+### ord
+`ord(c)` возвращает целое число, предоставляющее код Юникода, полученного символа Юникода.
+```python
+ord('1') # 49
+ord('a') # 97
+```
+
+
+### pow
+`pow(base, exp, mod=None)` возвращает base в степени exp. Если mod присутствует, возвращает base в степени exp по модулю.
+```python
+pow(2, 3) # 8
+```
+
+### print
+`print(*objects, sep=' ', end='\n', file=None, flush=False)` выводит обьекты в консоль, разделяя sep и оканчивая end. Все аргументы без ключевого преобразуются в строки и выводятся.
+```python
+print('Hello world!') # Hello world!
+
+a = 1
+print('Hello world!', a) # Hello world! 1
+
+phrase = ['printed', 'with', 'a', 'dash', 'in', 'between']
+for word in phrase:
+      print(word, end='-')
+# printed-with-a-dash-in-between-
+
+print('cats', 'dogs', 'mice', sep=',') # cats,dogs,mice
+```
+
+
+### property
+`property(fget=None, fset=None, fdel=None, doc=None)` возвращает атрибут свойства. fget - функция получения значения атрибута, fset - функция установки значения атрибута, fdel - функция удаления значения атрибута, doc - создает строку документации для атрибута:
 ```python
 class C:
-    def __init__(self):
-        self._x = None
+      def __init__(self):
+            self._x = None
 
-    def getx(self):
-        return self._x
+      def getx(self):
+            return self._x
 
-    def setx(self, value):
-        self._x = value
+      def setx(self, value):
+            self._x = value
 
-    def delx(self):
-        del self._x
+      def delx(self):
+            del self._x
 
-    x = property(getx, setx, delx, "I'm the 'x' property.")
-```
-Декоратор @property превращает voltage() в метод получения атрибута с тем же именем, доступного только для чтения:
-```python
+      x = property(getx, setx, delx, "I'm the 'x' property.")
+
+
 class Parrot:
     def __init__(self):
         self._voltage = 100000
 
     @property
     def voltage(self):
-        """Get the current voltage."""
+        """Декоратор @property превращает voltage() в метод получения атрибута с тем же именем, доступного только для чтения"""
         return self._voltage
-```
-Обьект свойства имеет методы `getter`, `setter`, `deleter`, которые можно использовать в качестве декораторов, которые создают копию св-ва с соответствующей функцией доступа:
-```python
+
+
+# Этот код в точности эквивалентен первому примеру. Обязательно дайте дополнительным функциям то же имя, что и исходному свойству.
 class C:
     def __init__(self):
         self._x = None
 
     @property
     def x(self):
-        """I'm the 'x' property."""
+        """Обьект свойства имеет методы `getter`, `setter`, `deleter`, которые можно использовать в качестве декораторов, которые создают копию св-ва с соответствующей функцией доступа"""
         return self._x
 
     @x.setter
@@ -947,14 +971,185 @@ class C:
     def x(self):
         del self._x
 ```
-Этот код в точности эквивалентен первому примеру. Обязательно дайте дополнительным функциям то же имя, что и исходному свойству.
-## <a id="range">class range(start, stop, step=1)</a>
-Неизменяемый тип последовательности.
-## <a id="repr">repr(object)</a>
-Возвращает строку, содержающую печатное представление обьекта.
-## <a id="reversed">reversed(seq)</a>
-Возвращает обратный итератор. seq должен поддерживать \_\_reversed__() или \_\_len__() и \_\_getitem__().
-## <a id="round">round(number, ndigits=None)</a>
-Возвращает число, округленное до ndigits знаков после запятой.
-## <a id="set">class set(iterable)</a>
-Возвращает новый обьект set с элементами из iterable.
+
+
+### range
+`range(start, stop, step=1)` неизменяемый тип последовательности.
+
+
+### repr
+`repr(object)` возвращает строку, содержающую печатное представление обьекта.
+
+
+### reversed
+`reversed(seq)` возвращает обратный итератор. seq должен поддерживать \_\_reversed__() или \_\_len__() и \_\_getitem__().
+```python
+i = reversed([1, 2, 3])
+i.__next__() # 3
+i.__next__() # 2
+i.__next__() # 1
+```
+
+
+### round
+`round(number, ndigits=None)` возвращает число number, округленное до ndigits знаков после запятой.
+```python
+round(1.4) # 1
+round(1.5) # 2
+round(2.1) # 2
+round(2.9) # 3
+round(2/3, ndigits=3) # 0.667
+```
+
+
+### set
+`set(iterable)` возвращает новый обьект set с элементами из итерируемого объекта iterable.
+```python
+s = set()
+s # set()
+type(s) # <class 'set'>
+```
+
+
+### setattr
+`setattr(object, name, value)` аналог getattr(). Принимает обьект, строку, произвольное значение. Присваивает значение атрибуту.
+```python
+setattr(x, 'name', 123)
+```
+
+
+### slice
+`slice(start, stop, step=None)` возвращает обьект среза, представляющий набор индексов заданным `range(start, stop, step)`.
+```python
+furniture = ['table', 'chair', 'rack', 'shelf']
+furniture[0:4] # ['table', 'chair', 'rack', 'shelf']
+furniture[1:3] # ['chair', 'rack']
+furniture[0:-1] # ['table', 'chair', 'rack']
+furniture[:2] # ['table', 'chair']
+furniture[1:] # ['chair', 'rack', 'shelf']
+furniture[:] # ['table', 'chair', 'rack', 'shelf']
+
+
+# Slice полного списка приводит к копированию:
+spam2 = spam[:] # ['cat', 'bat', 'rat', 'elephant']
+spam.append('dog')
+spam # ['cat', 'bat', 'rat', 'elephant', 'dog']
+spam2 # ['cat', 'bat', 'rat', 'elephant']
+```
+
+
+### sorted
+`sorted(iterable, /, *, key=None, reverse=False)` возвращает новый отсортированный список из элементов iterable. key - функция для извлечения ключа сравнения из каждого элемента в итерации, reverse - производить ли обратную сортировку.
+```python
+sorted([1, 2, 3, 7, 4]) # [1, 2, 3, 4, 7]
+sorted(['a', 'h', 'e']) # ['a', 'e', 'h']
+sorted([1, 2, 3, 7, 4], reverse=True) # [7, 4, 3, 2, 1]
+sorted(['a', 'h', 'e'], reverse=True) # ['h', 'e', 'a']
+```
+
+
+### staticmethod
+`@staticmethod` преобразует метод в статический метод. Статический метод не получает неявного первого аргумента.
+```python
+class C:
+      @staticmethod
+      def f(arg1, arg2, argN): pass
+
+
+def regular_function(): pass
+
+class C:
+      method = staticmethod(regular_function)
+
+
+class Class:
+      @staticmethod
+      def function():
+            print("X")
+Class.function() # X
+```
+
+
+### str
+`str(object=b'', encoding='utf-8', errors='strict')` возвращает обьект str.
+```python
+from_integer = str(29)
+from_integer # '29'
+type(from_integer) # <class 'str'>
+from_float = str(-3.14)
+from_float # '-3.14'
+type(from_float) # <class 'str'>
+str() # ''
+```
+
+
+### sum
+`sum(iterable, /, start=0)` возвращает сумму полученных обьектов.
+```python
+sum([2, 4, 6]) # 12
+sum([10, 10, 10]) # 30
+```
+
+
+### super
+`super(type, object_or_type=None)` возвращает прокси-обьект, который делегирует вызовы методом родительскому или родственному классу type. object_or_type - порядок разрешения метода для поиска. Используется для ссылки на родительские классы. не называя из явно или для поддержки совмесного множественного наследования в динамической среде выполения.
+
+
+### tuple
+`tuple(iterable)` неизменяемый тип последовательности.
+```python
+t = tuple()
+type(t) # <class 'tuple'>
+t # ()
+l = [1, 2, 3]
+tuple(l) # (1, 2, 3)
+```
+
+
+### type
+`type(name, bases, dict, **kwds)` возвращает тип обьекта (object.\_\_class__).
+```python
+type('span') # <class 'str'>
+type(99) # <class 'int'>
+type(1.1) # <class 'float'>
+type([1, 2]) # <class 'list'>
+type((1, 2)) # <class 'tuple'>
+type({1, 2}) # <class 'set'>
+type({'a': 1, 'b': 2}) # <class 'dict'>
+```
+
+
+### vars
+`vars(object)` Возвращает \_\_dict__ атрибут.
+```python
+class Person:
+      def __init__(self, name, age):
+            self.name = name
+            self.age = age
+
+my_person = Person("Dwight", 35)
+my_vars = vars(my_person)
+print(my_vars) # {'name': 'Dwight', 'age': 35}
+```
+
+
+### zip
+`zip(*iterables, strict=False)` Возвращает итератор кортежей, где i-й кортеж содержит i-й элемент из каждой итерации аргументов. Превращает строки в столбцы, а столбцы в строки. Если итерации имеют одинаковую длину, то рекомендуется применить strict=True:
+```python
+list(zip(range(3), ['fee', 'fi', 'fo', 'fum'])) # [(0, 'fee'), (1, 'fi'), (2, 'fo')]
+
+
+furniture = ['table', 'chair', 'rack', 'shelf']
+price = [100, 50, 80, 40]
+
+for item, amount in zip(furniture, price):
+      print(f'The {item} costs ${amount}')
+# The table costs $100
+# The chair costs $50
+# The rack costs $80
+# The shelf costs $40
+```
+
+
+### \_\_import__
+`__import__(name, globals=None, locals=None, fromlist=(), level=0)` вызывается оператором import.
