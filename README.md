@@ -2,12 +2,46 @@
 Version: 3.12.3
 
 ## Contents
-- Built-in functions
-- Operators
-- Types
-- Exceptions
-- Standard modules
-- OOP
+
+
+
+## Operators
+- **`**`**: Оператор возведения в степень;
+- **`%`**: Остаток от деления;
+- **`//`**: Оператор целочисленного деления;
+- **`/`**: Оператор деления;
+- **`*`**: Оператор умножения;
+- **`-`**: Оператор вычитания;
+- **`+`**: Оператор сложения;
+- **`=`**: Оператор присваивания;
+- **`:=`**: Оператор присваивания и возвращения значения переменной;
+- **`==`**: Оператор сравнения равенства;
+- **`!=`**: Оператор сравнения неравенства;
+- **`<`**: Оператор меньше, чем;
+- **`>`**: Оператор больше, чем;
+- **`<=`**: Оператор меньше или равно;
+- **`>=`**: Оператор больше или равно;
+- **`<<`**: Побитовый сдвиг влево;
+- **`>>`**: Побитовый сдвиг вправо;
+- **`&`**: Побитовое и;
+- **`^`**: Побитовое исключающее или;
+- **`|`**: Побитовое или;
+- **`~`**: Побитовое не;
+- **`not`**: Булевый оператор не;
+- **`and`**: Булевый оператор и;
+- **`is`**: Проверка ID объектов;
+- **`in`**: Наличие объекта в последовательности;
+- **`or`**: Булевый оператор или;
+- **`if`**: Оператор если;
+- **`else`**: Оператор выполняется, если условие `if` и `elif` неверно;
+- **`elif`**: Оператор выполняется, если условие `if` неверно;
+- **`... if ... else ...`**: Тернарный условный оператор;
+- **`switch-case`**: Оператор Switch-Case. [Подробнее](src/operators.md#switch-case);
+- **`while`**: Оператор повторного выполнения;
+- **`break`**: Оператор выхода из цикла `while`;
+- **`continue`**: Оператор возвращения к началу цикла;
+- **`lambda`**: Анонимная функция. [Подробнее](src/operators.md#lambda);
+- **`for`**: Оператор перебора итерируемых объектов. [Подробнее](src/operators.md#for)
 
 
 ## Built-in functions
@@ -79,29 +113,391 @@ Version: 3.12.3
 - __`super`__: Делегирует вызовы методов родительскому объекту. [_Подробнее_](src/built_in_functions.md/#super)
 - __`tuple`__: Возвращает неизменяемый тип последовательности tuple. [_Подробнее_](src/built_in_functions.md/#tuple)
 - __`type`__: Возвращает тип объекта. [_Подробнее_](src/built_in_functions.md/#type)
-- __`vars`__: Возвращает атрибут dict. [_Подробнее_](src/built_in_functions.md/#vars)
+- __`vars`__: Возвращает object.\_\_dict__ иначе `locals`. [_Подробнее_](src/built_in_functions.md/#vars)
 - __`zip`__: Возвращает итератор кортежей. [_Подробнее_](src/built_in_functions.md/#zip)
 - __`import`__: Вызывается оператором импорта. [_Подробнее_](src/built_in_functions.md/#import)
 
 
-## Operators
-
-
-
 ## Types
+- **`list`**: Изменяемая последовательность. [Подробнее](src/types.md#list)
+- **`tuple`**: Неизменяемая последовательность. [Подробнее](src/types.md#tuple)
+- **`dict`**: Изменяемая последовательность пар ключ-значение. [Подробнее](src/types.md#dict)
+- **`set`**: Изменяемая неупорядоченная коллекция уникальных хешируемых объектов. [Подробнее](src/types.md#set)
+- **`frozenset`**: Изменяемая неупорядоченная коллекция уникальных хешируемых объектов. [Подробнее](src/types.md#frozenset)
+- **`bytes`**: Неизменяемая последовательность байт. [Подробнее](src/types.md#bytes)
+- **`bytearray`**: Изменяемая последовательность байт. [Подробнее](src/types.md#bytearray)
+- **`memoryview`**: Буфер памяти с данными. [Подробнее](src/types.md#memoryview)
+- **`string`**: Неизменяемая последовательность. [Подробнее](src/types.md#string)
+- **`int`**: целые числа. [Подробнее](src/types.md#int)
+- **`float`**: Числа с плавающей точкой. [Подробнее](src/types.md#float)
+- **`complex`**: Комплексные числа. [Подробнее](src/types.md#complex)
+- **`bool`**: Логические значения. [Подробнее](src/types.md#bool)
+
+
+## Operations on sequences
+- **`x in s`**: Элемент x находится в s
+- **`x not in s`**: Элемент x не находится в s
+- **`s + t`**: Объединение s и t
+- **`s * n`**: Добавление s к самому себе n раз
+- **`s[i]`**: i-й элемент из s
+- **`s[i:j]`**: последовательность от i до j из s
+- **`s[i:j:k]`**: последовательность от i до j с шагом k из s
+- **`len(s)`**: длина s
+- **`min(s)`**: наименьший элемент из s
+- **`max(s)`**: наибольший элемент из s
+- **`s.index(x[, i[, j]])`**: индекс первого вхождения x в s (в или после индекса i и перед индексом j)
+- **`s.count(x)`**: количество x в s
+
+
+#### Operations on mutable sequences
+- **`s[i] = x`**: Элемент i из s заменяется на x
+- **`s[i:j] = t`**: Фрагмент s от i до j заменяется содержимым итерируемого t
+- **`del s[i:j]`**: Аналогично `s[i:j] = []`
+- **`s[i:j:k] = t`**: Элементы `s[i:j:k]` заменяются элементами t
+- **`del s[i:j:k]`**: Удаляет элементы `s[i:j:k]`
+- **`s.append(x)`**: Добавляет x в конец последовательности
+- **`s.clear()`**: Удаляет все элементы из s
+- **`s.copy()`**: Создает неглубокую копию s (как `s[:]`)
+- **`s.extend(t)`**: Расширяет s содержимым t
+- **`s *= n`**: Обновляет s, его содержимое повторяется n раз
+- **`s.insert(i, x)`**: Вставляет x в s перед индексом i
+- **`s.pop()`**: Извлекает элемент в i, а также удаляет его из s
+- **`s.remove(x)`**: Удаляет первый элемент из s, где `s[i] = x`
+- **`s.reverse()`**: Меняет местами элементы s на месте
+
+
+## Function definition
+```python
+def f(*args): pass  # f(1, 2, 3)
+def f(x, *args): pass  # f(1, 2, 3)
+def f(*args, z): pass  # f(1, 2, z=3)
+def f(**kwds): pass  # f(x=1, y=2, z=3)
+def f(x, **kwds): pass  # f(x=1, y=2, z=3) | f(1, y=2, z=3)
+def f(*args, **kwds): pass  # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3) | f(1, 2, 3)
+def f(x, *args, **kwds): pass  # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3) | f(1, 2, 3)
+def f(*args, y, **kwds): pass  # f(x=1, y=2, z=3) | f(1, y=2, z=3)
+def f(*, x, y, z): pass  # f(x=1, y=2, z=3)
+def f(x, *, y, z): pass  # f(x=1, y=2, z=3) | f(1, y=2, z=3)
+def f(x, y, *, z): pass  # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3)
+```
+Формат документирования функций:
+```python
+def foo():
+    """
+    Краткое описание функции с точкой на конце.
+
+    Если есть подробности, то они указываются через пустую строку.
+    """
+    return
+
+print(foo.__doc__)
+```
+
+
+## Class instantiation
+```python
+class A:
+      """Строка документации класса."""
+      def __init__(self, a):
+            """Строка документации метода."""
+            self.a = a
+      def __repr__(self):
+            """Используется repr(c), а также str(c) если __str__ не обьявлен."""
+            return f'{self.__class__.__name__}({self.a!r})'
+      def __str__(self):
+            """Используется str(c), например print(c)"""
+            return str(self.a)
+      @classmethod
+      def get_class_name(cls): # Принимает класс, а не экземпляр
+            return cls.__name__
+      @staticmethod
+      def static(): # Ничего не принимает
+            return 1
+
+a = A(1)  # Создание экземпляра
+
+# Создание экземпляра класса под капотом
+obj = cls.__new__(cls, *args, **kwds)
+if isinstance(obj, cls):
+      obj.__init__(*args, **kwds)
+```
+```python
+class B:
+      @property
+      def f(self):
+            if not hasattr(self, '_f'): return
+            return self._f
+      @f.setter
+      def f(self, value):
+            self._f = value
+```
 
 
 ## Exceptions
+Обработка исключений позволяет избежать принудительного закрытия программы. Чтобы вызвать исключение принудительно, используется `raise`.
+```python
+try:
+      # Код, который будет выполняться, пока не всплывет исключение.
+      pass
+except ValueError:
+      # Код, который выполнится, если всплывет исключение ValueError.
+      # В блоке try-except может быть указано неограниченное количество except блоков для перехвата ошибок.
+      pass
+except Exception:
+      # Код, который выполнится, если будет вызвано любое исключение.
+      pass
+finally:
+      # Код, который выполнится в любом случае
+      pass
+```
+Пользовательские исключения создаются посредством создания класса, наследующего класс Exception.
+```python
+class CustomException(Exception):
+      pass
+
+raise CustomException
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# __main__.CustomException
+```
+
+
+## Assert
+`assert` - способ проверки утверждением.
+```python
+pod_bay_door_status = 'open'
+assert pod_bay_door_status == 'open', 'The pod bay doors need to be "open".'
+
+pod_bay_door_status = 'I\'m sorry, Dave. I\'m afraid I can\'t do that.'
+assert pod_bay_door_status == 'open', 'The pod bay doors need to be "open".'
+# Traceback (most recent call last):
+#   File "<pyshell#10>", line 1, in <module>
+#     assert pod_bay_door_status == 'open', 'The pod bay doors need to be "open".'
+# AssertionError: The pod bay doors need to be "open".
+```
+
+
+## Decorators
+Декоратор - это функция, которая принимает другую функцию в качестве аргумента и возвращает оболочку.
+```python
+def your_decorator(func):
+      def wrapper():
+            func()
+      return wrapper
+
+@your_decorator
+def foo():
+      print("Hello World!")
+
+foo()
+# Before func!
+# Hello World!
+# After func!
+```
+Декоратор для функции с параметрами:
+```python
+def your_decorator(func):
+      def wrapper(*args,**kwargs):
+            func(*args,**kwargs)
+      return wrapper
+
+@your_decorator
+def foo(bar):
+      print("My name is " + bar)
+
+foo("Jack")
+# Before func!
+# My name is Jack
+# After func!
+```
+Шаблон для создания декоратора для функций с параметрами и без них, с возвращаемым значением или без:
+```python
+import functools
+
+def your_decorator(func):
+      @functools.wraps(func)
+      def wrapper(*args,**kwargs):
+            result = func(*args,**kwargs)
+            return result
+      return wrapper
+
+
+# Задание параметров декоратора
+def your_decorator(arg):
+      def decorator(func):
+            @functools.wraps(func)
+            def wrapper(*args,**kwargs):
+                  result = func(*args,**kwargs)
+                  return result
+            return wrapper
+      return decorator
+
+@your_decorator(arg = 'x')
+def foo(bar):
+      return bar
+```
+Реализация декоратора на основе класса. Используется для сохранения состояния:
+```python
+class CountCallNumber:
+      def __init__(self, func):
+            self.func = func
+            self.call_number = 0
+
+      def __call__(self, *args, **kwargs):
+            self.call_number += 1
+            print("This is execution number " + str(self.call_number))
+      return self.func(*args, **kwargs)
+
+@CountCallNumber
+def say_hi(name):
+      print("Hi! My name is " + name)
+
+say_hi("Jack")
+# This is execution number 1
+# Hi! My name is Jack
+
+say_hi("James")
+# This is execution number 2
+# Hi! My name is James
+```
+
+
+## Generator
+Функция-генератор - это функция или выражение, которое позволяет создавать итерируемые последовательности значений по мере их необходимости, вместо того, чтобы заранее создавать их все и хранить в памяти. Существует два основных типа генераторов: функциональные генераторы (с использованием ключевого слова yield) и генераторные выражения.
+```python
+def my_generator():
+    yield 1
+    yield 2
+
+gen = my_generator()
+print(next(gen)) # Вывод: 1
+
+
+gen_expr = (x ** 2 for x in range(5))
+print(list(gen_expr)) # Вывод: [0, 1, 4, 9, 16]
+```
+При каждом вызове next() генератор возобновляет работу с того места, где остановился (он запоминает все значения данных и то, какой оператор был выполнен последним). Методы __iter__ и __next__ создаются автоматически.
+```python
+def reverse(data):
+    for i in range(len(data)-1, -1, -1):
+        yield data[i]
+
+for i in reverse('spam'):
+    print(i)
+```
+Выражения-генераторы более компактны, но менее универсальны, чем полные определения генераторов, и более удобны для памяти, чем эквивалентные определения списков.
+```python
+sum(i*i for i in range(10))
+```
+
+
+## File objects
+Режимы открытия файла: `r` - только для чтения, `w` - только для записи (очищает), `a` - для добавления, `r+` - для чтения и записи. Добавление `b` откроет в двоичном режиме. Рекомендуется использовать с конструкцией with, файл корректно закроется после завершения работы. Иначе необходимо вручную закрывать файл.
+```python
+f = open(filename, mode='r', encoding=None)
+f.close()
+# Или
+with open('filepath', encoding="utf-8") as f:
+    read_data = f.read()
+```
+
+Методы:
+- **`read`**: Считывает некоторое количество данных и возвращает в виде строки или байтового обьекта.
+- **`readline`**: Считывает одну строку из файла.
+- **`readlines`**: Все строки файла в списке.
+- **`write`**: Записывает строку в файл и возвращает кол-во записанных символов.
+- **`tell`**: Возвращает целое число, указывающее текущую позицию файлового обьекта в файле, представленное как кол-во байтов от начала файла в двоичном режиме.
+- **`seek`**: Изменение положения файлового обьекта.
+
+
+
+## Iterator
+Объект-итератор - обьект, представляющий поток данных. Итератор должен реализовать два метода: `__iter__()` - возвращает обьект итератора; `__next__()` - возвращает следующий элемент из итератора или `StopIteration`, если элементов нет.
+```python
+class SimpleIterator:
+    def __init__(self, start, end):
+        self.current = start
+        self.end = end
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current < self.end:
+            result = self.current
+            self.current += 1
+            return result
+        else:
+            raise StopIteration
+
+my_iterator = SimpleIterator(1, 5)
+
+for value in my_iterator:
+    print(value)
+```
+
+
+## Annotations
+Аннотации типов предназначены для предоставления информации о типах данных переменных, аргументов функций и возвращаемых значений. Аннотации типов являются необязательными и не влияют на фактическое выполнение кода во время выполнения программы. Основные встроенные типы аннотаций - `Generic Alias`, `Union`. `GenericAlias` чаще всего используется с классами-контейнерами (`list(int)`).
+```python
+def send_post_request(url: str, body: dict[str, int]) -> None: pass
+```
+
+
+## Context manager
+Контекстный менеджер - объект, который реагирует, когда контекст начинается и заканчивается. Используется с `with`. Реализуется с помощью методов `__enter__()` и `__exit__()`, которые позволяют выполнить действия до выполнения кода и после. Например, файловые обьекты возвращают себя из `__enter__()`, чтобы их можно было открыть.
+Кастомный контекстный менеджер:
+```python
+import contextlib
+@contextlib.contextmanager
+def context_manager(num):
+      print('Enter')
+      yield num + 1
+      print('Exit')
+with context_manager(2) as cm:
+      print('Right in the middle with cm = {}'.format(cm))
+# Enter
+# Right in the middle with cm = 3
+# Exit
+```
+Контекстный менеджер на основе класса:
+```python
+class ContextManager:
+      def __enter__(self, *args, **kwargs):
+            print("--enter--")
+
+      def __exit__(self, *args):
+            print("--exit--")
+
+with ContextManager():
+    print("test")
+# --enter--
+# test
+# --exit--
+```
+
+
+## Args & Kwargs
+`args` и `kwargs` - позволяют передавать функции неопределенное количество аргументов. Названия являются условными и могут быть изменены.
+`args` позволяет передавать функции неограниченное количество безымянных аргументов.
+```python
+def foo(*args):
+      print(f'Arguments passed: {args} as {type(args)}')
+
+foo('arg1', 'arg2', 'arg3')  # Arguments passed: ('arg1', 'arg2', 'arg3') as <class 'tuple'>
+```
+`kwargs` позволяет передавать функции неограниченное количество именованных аргументов.
+```python
+def foo2(**kwargs):
+      print(f'keywords: {kwargs} as {type(kwargs)}')
+
+foo2(key1='arg1', key2='arg2')  # keywords: {'key1': 'arg1', 'key2': 'arg2'} as <class 'dict'>
+```
 
 
 ## Standard modules
 
-
-1. [Функции](src/1_functions.md)
-2. [Типы](src/2_types.md)
-3. Исключения
-4. [Примеры](src/4_examples.md)
-5. Модули
+1. Модули
     1. [Обработка текста](src/modules/5_1_modules.md)
          1. [string - Общие строковые операции](src/modules/5_1_modules.md#1)
          2. [re - Операции с регулярными выражениями](src/modules/5_1_modules.md#2)
@@ -297,8 +693,8 @@ Version: 3.12.3
           11. [pickletools - Инструменты для разработчиков Pickle](src/modules/5_27_modules.md#11)
     28. Специальные службы для Windows
     29. Специальные службы для Unix
-6. [Глоссарий](src/6_glossary.md)
-7. [ООП](src/7_oop.md)
+2. [Глоссарий](src/6_glossary.md)
+3. [ООП](src/7_oop.md)
 
 
 
