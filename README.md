@@ -496,17 +496,29 @@ foo2(key1='arg1', key2='arg2')  # keywords: {'key1': 'arg1', 'key2': 'arg2'} as 
 
 
 ## Standard modules
+- **`string`**: Общие строковые операции. [Подробнее](src/modules/text_processing.md#string)
+- **`re`**: Операции с регулярными выражениями. [Подробнее](src/modules/text_processing.md#re)
+- **`difflib`**: Помощники для вычисления дельт. [Подробнее](src/modules/text_processing.md#difflib)
+- **`textwrap`**: Перенос и заполнение текста. [Подробнее](src/modules/text_processing.md#textwrap)
+- **`unicodedata`**: База данных Юникод. [Подробнее](src/modules/text_processing.md#unicodedata)
+- **`stringprep`**: Подготовка интернет-строки. [Подробнее](src/modules/text_processing.md#stringprep)
+- **`readline`**: Интерфейс чтения GNU. [Подробнее](src/modules/text_processing.md#readline)
+- **`rlcompleter`**: Функция завершения для строки чтения GNU. [Подробнее](src/modules/text_processing.md#rlcompleter)
+- **``**: . [Подробнее](src/modules/text_processing.md#)
+
+
+
+
+
+
+
+
+
+
 
 1. Модули
-    1. [Обработка текста](src/modules/5_1_modules.md)
-         1. [string - Общие строковые операции](src/modules/5_1_modules.md#1)
-         2. [re - Операции с регулярными выражениями](src/modules/5_1_modules.md#2)
-         3. [difflib - Помощники для вычисления дельт](src/modules/5_1_modules.md#3)
-         4. [textwrap - Перенос и заполнение текста](src/modules/5_1_modules.md#4)
-         5. [unicodedata - База данных Юникод](src/modules/5_1_modules.md#5)
-         6. [stringprep - Подготовка интернет-строки](src/modules/5_1_modules.md#6)
-         7. [readline - Интерфейс чтения GNU](src/modules/5_1_modules.md#7)
-         8. [rlcompleter - Функция завершения для строки чтения GNU](src/modules/5_1_modules.md#8)
+    1. [Обработка текста](src/modules/text_processing.md)
+
     2. [Двоичные данные](src/modules/5_2_modules.md)
          1. [struct - Интерпретирование байтов, как упакованные двоичные данные](src/modules/5_2_modules.md#1)
          2. [codecs - Реестр кодеков и базовые классы](src/modules/5_2_modules.md#2)
@@ -693,7 +705,7 @@ foo2(key1='arg1', key2='arg2')  # keywords: {'key1': 'arg1', 'key2': 'arg2'} as 
           11. [pickletools - Инструменты для разработчиков Pickle](src/modules/5_27_modules.md#11)
     28. Специальные службы для Windows
     29. Специальные службы для Unix
-2. [Глоссарий](src/6_glossary.md)
+2. [Глоссарий](src/glossary.md)
 3. [ООП](src/7_oop.md)
 
 
